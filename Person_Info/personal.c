@@ -90,6 +90,7 @@ void Close(listNode *first_list)
         first_list = first_list->next;
         free(tmp);
     }
+
     // NOTE print save data
     // if ((ppfile = fopen("data.txt", "rb")) == NULL)
     // {

@@ -187,9 +187,10 @@ void is_same(listNode *temp_list, listNode *prev)
     listnew->num = end->num + 1;
     cur = prev->next;
     prev->next = cur->next;
-    while (cur->next != NULL)
+    free(cur);
+    while (prev->next != NULL)
     {
-        cur->next->num = cur->next->num - 1;
-        cur = cur->next;
+        prev->next->num = prev->next->num - 1;
+        prev = prev->next;
     }
 }
