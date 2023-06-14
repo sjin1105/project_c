@@ -19,7 +19,7 @@ void Load(listNode *first_list)
         PERSON_INFO *temp_info = (PPERSON_INFO)malloc(sizeof(PERSON_INFO));
         if (temp_info == NULL)
         {
-            printf("malloc error");
+            printf("malloc error\n");
             return;
         }
         memset(temp_info, 0, sizeof(PERSON_INFO));
@@ -32,7 +32,7 @@ void Load(listNode *first_list)
         listNode *listnew = (listNode *)malloc(sizeof(listNode));
         if (listnew == NULL)
         {
-            printf("malloc error");
+            printf("malloc error\n");
             return;
         }
         memset(listnew, 0, sizeof(listNode));

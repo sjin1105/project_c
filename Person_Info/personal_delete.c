@@ -175,7 +175,7 @@ void is_same(listNode *temp_list, listNode *prev)
 
     if (listnew == NULL)
     {
-        printf("malloc error");
+        printf("malloc error\n");
         return;
     }
     memset(listnew, 0, sizeof(listNode));

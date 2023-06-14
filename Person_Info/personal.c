@@ -5,7 +5,7 @@ int main(void)
     listNode *first_list = (listNode *)malloc(sizeof(listNode));
     if (first_list == NULL)
     {
-        printf("malloc error");
+        printf("malloc error\n");
         return 0;
     }
     memset(first_list, 0, sizeof(listNode));
@@ -80,10 +80,15 @@ void Close(listNode *first_list)
     while (tmp != NULL)
     {
         cur = tmp->data;
-        fwrite(cur, sizeof(PERSON_INFO), 1, pfile);
+        if (fwrite(cur, sizeof(PERSON_INFO), 1, pfile) != 1)
+        {
+            printf("Write Fail\n");
+            return;
+        }
         tmp = tmp->next;
     }
     fclose(pfile);
+
     while (first_list->next != NULL)
     {
         tmp = first_list;
