@@ -30,7 +30,7 @@ void Modify(listNode *first_list)
         return;
     }
 
-    printf("검색 옵션\n1. 이름\n2. 전화번호\n3. 나이\nSelect Num : ");
+    printf("검색 옵션\n1. 이름\n2. 전화번호\n3. 나이\n* Select Num. : ");
     scanf("%d", &choice_num);
     clear_buffer();
 
@@ -138,14 +138,14 @@ void Modify(listNode *first_list)
             {
                 printf("변경될 이름 : ");
                 fgets(name, MAX_NAME_LENGTH, stdin);
-                if (strlen(name) == 1)
+                strcpy(name, trim(name));
+                if (strlen(name) == 0)
                 {
                     printf("이름은 비어있을수 없습니다.\n");
                     clear_buffer();
                 }
                 else
                 {
-                    name[strlen(name) - 1] = '\0';
                     clear_buffer();
                     break;
                 }
@@ -155,9 +155,20 @@ void Modify(listNode *first_list)
             phone[strlen(phone) - 1] = '\0';
             clear_buffer();
 
-            printf("변경될 나이 : ");
-            scanf("%d", &age);
-            clear_buffer();
+            while (1)
+            {
+                printf("변경될 나이 : ");
+                scanf("%d", &age);
+                clear_buffer();
+                if ((age < 0) | (age > 200))
+                {
+                    printf("나이는 0이상 200이하여야 합니다.\n");
+                }
+                else
+                {
+                    break;
+                }
+            }
 
             strcpy(cur->next->data->szName, name);
             strcpy(cur->next->data->szPhone, phone);
@@ -169,7 +180,7 @@ void Modify(listNode *first_list)
             cur = cur->next;
         }
     }
-    if (flag == 1)
+    if (flag == 0)
     {
         printf("일치하는 번호가 없습니다.\n");
     }

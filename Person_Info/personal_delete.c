@@ -31,7 +31,7 @@ void Delete(listNode *first_list)
         return;
     }
 
-    printf("검색 옵션 1. 이름, 2. 전화번호, 3. 나이 : ");
+    printf("검색 옵션\n1. 이름\n2. 전화번호\n3. 나이\n* Select Num. : ");
     scanf("%d", &choice_num);
     clear_buffer();
 
@@ -116,7 +116,7 @@ void Delete(listNode *first_list)
     cur = temp_list;
     if (cur->next == NULL)
     {
-        printf("일치하는 사람이 없습니다.");
+        printf("일치하는 사람이 없습니다.\n");
         return;
     }
     while (cur->next != NULL)
@@ -151,7 +151,7 @@ void Delete(listNode *first_list)
     }
     if (flag == 0)
     {
-        printf("일치하는 번호가 없습니다.");
+        printf("일치하는 번호가 없습니다.\n");
     }
     if (temp_list->next != NULL)
     {

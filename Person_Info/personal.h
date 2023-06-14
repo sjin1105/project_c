@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 #define MAX_NAME_LENGTH 10
 #define MAX_PHONE_LENGTH 20
@@ -44,3 +45,4 @@ void Load(listNode *first_list);
 void Modify(listNode *first_list);
 void clear_buffer();
 void is_same(listNode *temp_list, listNode *prev);
+char *trim(char *str);

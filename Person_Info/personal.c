@@ -1,5 +1,7 @@
 #include "personal.h"
 
+// #define print_data
+
 int main(void)
 {
     listNode *first_list = (listNode *)malloc(sizeof(listNode));
@@ -96,27 +98,29 @@ void Close(listNode *first_list)
         free(tmp);
     }
 
+#ifdef print_data
     // NOTE print save data
-    // if ((ppfile = fopen("data.txt", "rb")) == NULL)
-    // {
-    //     printf("\nERROR : Cannot Open Data File\n");
-    //     return;
-    // }
+    if ((ppfile = fopen("data.txt", "rb")) == NULL)
+    {
+        printf("\nERROR : Cannot Open Data File\n");
+        return;
+    }
 
-    // PERSON_INFO *temp_info = (PPERSON_INFO)malloc(sizeof(PERSON_INFO));
-    // if (temp_info == NULL)
-    // {
-    //     printf("malloc error");
-    //     exit(1);
-    // }
-    // memset(temp_info, 0, sizeof(PERSON_INFO));
+    PERSON_INFO *temp_info = (PPERSON_INFO)malloc(sizeof(PERSON_INFO));
+    if (temp_info == NULL)
+    {
+        printf("malloc error");
+        exit(1);
+    }
+    memset(temp_info, 0, sizeof(PERSON_INFO));
 
-    // while (fread(temp_info, sizeof(PERSON_INFO), 1, ppfile) == 1)
-    // {
-    //     printf("%s\n", temp_info->szName);
-    //     printf("%s\n", temp_info->szPhone);
-    //     printf("%d\n", temp_info->nAge);
-    // }
-    // fclose(ppfile);
-    // free(temp_info);
+    while (fread(temp_info, sizeof(PERSON_INFO), 1, ppfile) == 1)
+    {
+        printf("%s\n", temp_info->szName);
+        printf("%s\n", temp_info->szPhone);
+        printf("%d\n", temp_info->nAge);
+    }
+    fclose(ppfile);
+    free(temp_info);
+#endif
 }
